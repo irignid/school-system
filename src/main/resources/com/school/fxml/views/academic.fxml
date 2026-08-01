@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<!--
+  academic.fxml
+  Path: src/main/resources/com/school/fxml/views/academic.fxml
+  Loaded by MainController.loadView("academic")
+-->
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.school.controller.AcademicController"
+        stylesheets="@../../css/styles.css">
+
+    <!-- ═══ PAGE HEADER ════════════════════════════════════════ -->
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT">
+                <padding><Insets top="20" right="24" bottom="16" left="24"/></padding>
+                <Label text="Academic Setup" styleClass="page-title"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <!-- ═══ TAB PANE ═══════════════════════════════════════════ -->
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <padding><Insets top="8" right="8" bottom="8" left="8"/></padding>
+
+            <!-- ── Tab 1: Academic Years ──────────────────────── -->
+            <Tab text="📅  Academic Years">
+                <VBox spacing="12">
+                    <padding><Insets top="14" right="16" bottom="14" left="16"/></padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label text="Academic Years" styleClass="section-title"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="＋  New Year"
+                                styleClass="btn-primary"
+                                onAction="#handleAddYear"/>
+                    </HBox>
+
+                    <TableView fx:id="yearTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                        <placeholder>
+                            <Label text="No academic years found."/>
+                        </placeholder>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="yearColLabel"   text="Year"       minWidth="120"/>
+                            <TableColumn fx:id="yearColStart"   text="Start Date" minWidth="120"/>
+                            <TableColumn fx:id="yearColEnd"     text="End Date"   minWidth="120"/>
+                            <TableColumn fx:id="yearColCurrent" text="Status"     maxWidth="120" minWidth="100"/>
+                            <TableColumn fx:id="yearColActions" text="Actions"    maxWidth="160" minWidth="140"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <!-- ── Tab 2: Terms ───────────────────────────────── -->
+            <Tab text="🗓  Terms">
+                <VBox spacing="12">
+                    <padding><Insets top="14" right="16" bottom="14" left="16"/></padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label text="Academic Year:" styleClass="form-label"/>
+                        <ComboBox fx:id="termYearFilter" prefWidth="180" promptText="Select year…"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="btnAddTerm" text="＋  Add Term"
+                                styleClass="btn-primary"
+                                onAction="#handleAddTerm"
+                                disable="true"/>
+                    </HBox>
+
+                    <TableView fx:id="termTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                        <placeholder>
+                            <Label text="Select an academic year to view terms.."/>
+                        </placeholder>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="termColNumber" text="Term"       maxWidth="80"  minWidth="70"/>
+                            <TableColumn fx:id="termColStart"  text="Start Date" minWidth="130"/>
+                            <TableColumn fx:id="termColEnd"    text="End Date"   minWidth="130"/>
+                            <TableColumn fx:id="termColActions" text="Actions"   maxWidth="200" minWidth="170"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <!-- ── Tab 3: Subjects ────────────────────────────── -->
+            <Tab text="📚  Subjects">
+                <VBox spacing="12">
+                    <padding><Insets top="14" right="16" bottom="14" left="16"/></padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label text="Filter by Grade:" styleClass="form-label"/>
+                        <ComboBox fx:id="subjectGradeFilter" prefWidth="150" promptText="All grades"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="＋  Add Subject"
+                                styleClass="btn-primary"
+                                onAction="#handleAddSubject"/>
+                    </HBox>
+
+                    <TableView fx:id="subjectTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                        <placeholder>
+                            <Label text="No subjects found."/>
+                        </placeholder>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="subjectColName"    text="Subject (EN)"  minWidth="160"/>
+                            <TableColumn fx:id="subjectColNameSi"  text="විෂය (සිංහල)" minWidth="150"/>
+                            <TableColumn fx:id="subjectColGrade"   text="Grade"         maxWidth="100" minWidth="80"/>
+                            <TableColumn fx:id="subjectColActions" text="Actions"       maxWidth="180" minWidth="160"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <!-- ── Tab 4: Classes ─────────────────────────────── -->
+            <Tab text="🏫  Classes">
+                <VBox spacing="12">
+                    <padding><Insets top="14" right="16" bottom="14" left="16"/></padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label text="Academic Year:" styleClass="form-label"/>
+                        <ComboBox fx:id="classYearFilter" prefWidth="180" promptText="Select year…"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="btnAddClass" text="＋  Add Class"
+                                styleClass="btn-primary"
+                                onAction="#handleAddClass"
+                                disable="true"/>
+                    </HBox>
+
+                    <TableView fx:id="classTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                        <placeholder>
+                            <Label text="Select an academic year to view classes."/>
+                        </placeholder>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="classColGrade"   text="Grade"            maxWidth="90"  minWidth="70"/>
+                            <TableColumn fx:id="classColSection" text="Section"           maxWidth="90"  minWidth="70"/>
+                            <TableColumn fx:id="classColTeacher" text="Homeroom Teacher"  minWidth="180"/>
+                            <TableColumn fx:id="classColActions" text="Actions"           maxWidth="160" minWidth="140"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <!-- ── Tab 5: Class Subjects ──────────────────────── -->
+            <Tab text="🔗  Class Subjects">
+                <SplitPane dividerPositions="0.30">
+
+                    <!-- Left: class selector -->
+                    <VBox spacing="10">
+                        <padding><Insets top="14" right="12" bottom="14" left="16"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Label text="Academic Year:" styleClass="form-label"/>
+                            <ComboBox fx:id="csYearFilter" prefWidth="140" promptText="Year…"/>
+                        </HBox>
+                        <TableView fx:id="csClassTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                            <placeholder>
+                                <Label text="Select a year."/>
+                            </placeholder>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn fx:id="csClassColGrade"   text="Grade"   maxWidth="70"/>
+                                <TableColumn fx:id="csClassColSection" text="Section" maxWidth="70"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    <!-- Right: subject-teacher assignments -->
+                    <VBox spacing="10">
+                        <padding><Insets top="14" right="16" bottom="14" left="12"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Label fx:id="csTitle"
+                                   text="Select a class on the left"
+                                   styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button fx:id="btnAssignSubject"
+                                    text="＋  Assign Subject"
+                                    styleClass="btn-primary"
+                                    onAction="#handleAssignSubject"
+                                    disable="true"/>
+                        </HBox>
+                        <TableView fx:id="csTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                            <placeholder>
+                                <Label text="Select a class, date, and period above then click Load."/>
+                            </placeholder>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn fx:id="csColSubject"   text="Subject"    minWidth="150"/>
+                                <TableColumn fx:id="csColSubjectSi" text="සිංහල"     minWidth="130"/>
+                                <TableColumn fx:id="csColTeacher"   text="Teacher"    minWidth="160"/>
+                                <TableColumn fx:id="csColActions"   text="Actions"    maxWidth="180" minWidth="160"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                </SplitPane>
+            </Tab>
+
+            <!-- ── Tab 6: Enrollments ─────────────────────────── -->
+            <Tab text="📋  Enrollments">
+                <SplitPane dividerPositions="0.30">
+
+                    <!-- Left: class selector -->
+                    <VBox spacing="10">
+                        <padding><Insets top="14" right="12" bottom="14" left="16"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Label text="Academic Year:" styleClass="form-label"/>
+                            <ComboBox fx:id="enrollYearFilter" prefWidth="140" promptText="Year…"/>
+                        </HBox>
+                        <TableView fx:id="enrollClassTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                            <placeholder><Label text="Select a year."/></placeholder>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn fx:id="enrollClassColGrade"   text="Grade"   maxWidth="70"/>
+                                <TableColumn fx:id="enrollClassColSection" text="Section" maxWidth="70"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    <!-- Right: enrolled students -->
+                    <VBox spacing="10">
+                        <padding><Insets top="14" right="16" bottom="14" left="12"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Label fx:id="enrollTitle"
+                                text="Select a class on the left"
+                                styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button fx:id="btnEnrollStudents"
+                                    text="＋  Enroll Students"
+                                    styleClass="btn-primary"
+                                    onAction="#handleEnrollStudents"
+                                    disable="true"/>
+                        </HBox>
+                        <TableView fx:id="enrolledTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                            <placeholder><Label text="No students enrolled in this class yet."/></placeholder>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn fx:id="enrollColName"    text="Student Name" minWidth="180"/>
+                                <TableColumn fx:id="enrollColNameSi"  text="නම"          minWidth="140"/>
+                                <TableColumn fx:id="enrollColGender"  text="Gender"       maxWidth="80"/>
+                                <TableColumn fx:id="enrollColNic"     text="NIC"          minWidth="120"/>
+                                <TableColumn fx:id="enrollColActions" text="Actions"      maxWidth="110" minWidth="90"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                </SplitPane>
+            </Tab>
+
+            <!-- ── Tab 7: TimeTable ─────────────────────────── -->
+            <Tab text="🔔  Timetable">
+                <VBox spacing="10">
+                    <padding><Insets top="14" right="16" bottom="14" left="16"/></padding>
+            
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label text="Academic Year:" styleClass="form-label"/>
+                        <ComboBox fx:id="ttYearFilter" prefWidth="160" promptText="Year…"/>
+                        <Label text="Class:" styleClass="form-label"/>
+                        <ComboBox fx:id="ttClassCombo" prefWidth="160" promptText="Select class…"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="Clear All Slots"
+                                styleClass="btn-danger"
+                                onAction="#handleClearTimetable"/>
+                    </HBox>
+            
+                    <Separator/>
+            
+                    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                        <VBox fx:id="ttGridContainer" spacing="0"/>
+                    </ScrollPane>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+</BorderPane>

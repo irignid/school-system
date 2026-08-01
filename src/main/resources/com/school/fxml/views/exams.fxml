@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<!--
+  exams.fxml
+  Path: src/main/resources/com/school/fxml/views/exams.fxml
+  Used by both Principal (Exams & Grades) and Teacher (Enter Marks).
+  The controller hides Tab 1 and Tab 3 for teachers.
+-->
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.school.controller.ExamsController"
+        stylesheets="@../../css/styles.css">
+
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT">
+                <padding><Insets top="20" right="24" bottom="12" left="24"/></padding>
+                <Label fx:id="pageTitle" text="Exams &amp; Grades" styleClass="page-title"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <padding><Insets top="8" right="8" bottom="8" left="8"/></padding>
+
+            <!-- ── Tab 1: Exams (principal only) ──────────────── -->
+            <Tab fx:id="tabExams" text="📝  Exams">
+                <SplitPane orientation="VERTICAL" dividerPositions="0.55">
+
+                    <!-- Top: exam list -->
+                    <VBox spacing="10">
+                        <padding><Insets top="14" right="16" bottom="8" left="16"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Label text="Filter by Class:" styleClass="form-label"/>
+                            <ComboBox fx:id="examClassFilter" prefWidth="180" promptText="All classes"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="＋  Create Exam"
+                                    styleClass="btn-primary"
+                                    onAction="#handleCreateExam"/>
+                        </HBox>
+                        <TableView fx:id="examTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                            <placeholder>
+                                <Label text="No exams found."/>
+                            </placeholder>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn fx:id="examColName"    text="Exam Name"  minWidth="180"/>
+                                <TableColumn fx:id="examColClass"   text="Class"      minWidth="130"/>
+                                <TableColumn fx:id="examColTerm"    text="Term"       maxWidth="100" minWidth="80"/>
+                                <TableColumn fx:id="examColYear"    text="Year"       maxWidth="120" minWidth="100"/>
+                                <TableColumn fx:id="examColActions" text="Actions"    maxWidth="180" minWidth="160"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    <!-- Bottom: exam schedule for selected exam -->
+                    <VBox spacing="10">
+                        <padding><Insets top="10" right="16" bottom="14" left="16"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Label fx:id="scheduleTitle"
+                                   text="Schedule — select an exam above"
+                                   styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button fx:id="btnAddSchedule"
+                                    text="＋  Add Subject"
+                                    styleClass="btn-secondary"
+                                    onAction="#handleAddSchedule"
+                                    disable="true"/>
+                        </HBox>
+                        <TableView fx:id="scheduleTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                            <placeholder>
+                                <Label text="Select an exam above to view its schedule."/>
+                            </placeholder>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn fx:id="schColSubject"   text="Subject"    minWidth="150"/>
+                                <TableColumn fx:id="schColDate"      text="Date"       minWidth="110"/>
+                                <TableColumn fx:id="schColTime"      text="Start Time" maxWidth="110" minWidth="90"/>
+                                <TableColumn fx:id="schColDuration"  text="Duration"   maxWidth="110" minWidth="90"/>
+                                <TableColumn fx:id="schColActions"   text="Actions"    maxWidth="120" minWidth="100"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                </SplitPane>
+            </Tab>
+
+            <!-- ── Tab 2: Enter Marks ─────────────────────────── -->
+            <Tab fx:id="tabMarks" text="📃  Enter Marks">
+                <VBox spacing="10">
+                    <padding><Insets top="14" right="16" bottom="14" left="16"/></padding>
+
+                    <!-- Selectors -->
+                    <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding:0 0 4 0;">
+                        <Label text="Class:" styleClass="form-label"/>
+                        <ComboBox fx:id="marksClassCombo" prefWidth="160" promptText="Select class…"/>
+                        <Label text="Exam:" styleClass="form-label"/>
+                        <ComboBox fx:id="marksExamCombo"  prefWidth="190" promptText="Select exam…"/>
+                        <Label text="Subject:" styleClass="form-label"/>
+                        <ComboBox fx:id="marksSubjectCombo" prefWidth="170" promptText="Select subject…"/>
+                        <Button text="Load"
+                                styleClass="btn-secondary"
+                                onAction="#handleLoadMarks"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="marksMaxLabel"
+                               text="Max mark:"
+                               styleClass="form-label"
+                               visible="false" managed="false"/>
+                        <TextField fx:id="marksMaxField"
+                                   prefWidth="70"
+                                   promptText="100"
+                                   visible="false" managed="false"/>
+                    </HBox>
+
+                    <Separator/>
+
+                    <!-- Marks entry table -->
+                    <TableView fx:id="marksTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                        <placeholder>
+                            <Label text="Select a class, exam, and subject, then click Load."/>
+                        </placeholder>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="mkColNum"     text="#"           maxWidth="50"  minWidth="40"/>
+                            <TableColumn fx:id="mkColName"    text="Student"     minWidth="180"/>
+                            <TableColumn fx:id="mkColNameSi"  text="Name (Si)"   minWidth="140"/>
+                            <TableColumn fx:id="mkColMark"    text="Mark"        minWidth="180" maxWidth="240"/>
+                            <TableColumn fx:id="mkColGrade"   text="Grade"       maxWidth="90"  minWidth="70"/>
+                        </columns>
+                    </TableView>
+
+                    <!-- Submit bar -->
+                    <HBox alignment="CENTER_RIGHT" spacing="12">
+                        <Label fx:id="marksStatusLabel" style="-fx-text-fill:#64748b;"/>
+                        <Button fx:id="btnSaveMarks"
+                                text="Save Marks"
+                                styleClass="btn-primary"
+                                onAction="#handleSaveMarks"
+                                disable="true"/>
+                    </HBox>
+                </VBox>
+            </Tab>
+
+            <!-- ── Tab 3: View Grades ─────────────────────────── -->
+            <Tab fx:id="tabGrades" text="📊  View Grades">
+                <VBox spacing="10">
+                    <padding><Insets top="14" right="16" bottom="14" left="16"/></padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label text="Class:" styleClass="form-label"/>
+                        <ComboBox fx:id="gradesClassCombo" prefWidth="170" promptText="Select class…"/>
+                        <Label text="Exam:" styleClass="form-label"/>
+                        <ComboBox fx:id="gradesExamCombo" prefWidth="200" promptText="Select exam…"/>
+                        <Button text="Load"
+                                styleClass="btn-secondary"
+                                onAction="#handleLoadGrades"/>
+                    </HBox>
+
+                    <Separator/>
+
+                    <TableView fx:id="gradesTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                        <placeholder>
+                            <Label text="Select a class and exam, then click Load."/>
+                        </placeholder>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="grColStudent"  text="Student"     minWidth="180"/>
+                            <TableColumn fx:id="grColSubject"  text="Subject"     minWidth="150"/>
+                            <TableColumn fx:id="grColMark"     text="Mark"        maxWidth="90"  minWidth="70"/>
+                            <TableColumn fx:id="grColMax"      text="Max"         maxWidth="70"  minWidth="60"/>
+                            <TableColumn fx:id="grColPct"      text="Percentage"  maxWidth="80"  minWidth="60"/>
+                            <TableColumn fx:id="grColGrade"    text="Grade"       maxWidth="80"  minWidth="60"/>
+                        </columns>
+                    </TableView>
+
+                    <!-- Grade thresholds reference -->
+                    <TitledPane text="Grade Scale Reference" expanded="false">
+                        <TableView fx:id="thresholdTable" prefHeight="180" styleClass="table-view">
+                            <placeholder>
+                                <Label text="No thresholds configured."/>
+                            </placeholder>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn fx:id="thrColGrade" text="Grade" maxWidth="100"/>
+                                <TableColumn fx:id="thrColRange" text="Mark Range"/>
+                            </columns>
+                        </TableView>
+                    </TitledPane>
+                </VBox>
+            </Tab>
+
+            <!-- ── Tab 4: Report Cards (principal only) ────────────── -->
+            <Tab fx:id="tabReportCards" text="📁  Report Cards">
+                <VBox spacing="12">
+                    <padding><Insets top="14" right="16" bottom="14" left="16"/></padding>
+
+                    <!-- Selectors -->
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label text="Class:" styleClass="form-label"/>
+                        <ComboBox fx:id="rcClassCombo" prefWidth="170" promptText="Select class…"/>
+                        <Label text="Term:" styleClass="form-label"/>
+                        <ComboBox fx:id="rcTermCombo"  prefWidth="160" promptText="Select term…"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="rcStatusLabel" style="-fx-text-fill:#64748b;"/>
+                    </HBox>
+
+                    <Separator/>
+
+                    <!-- Student list -->
+                    <TableView fx:id="rcStudentTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                        <placeholder>
+                            <Label text="Select a class and term to load students."/>
+                        </placeholder>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="rcColName"    text="Student Name" minWidth="200"/>
+                            <TableColumn fx:id="rcColNameSi"  text="නම (සිංහල)" minWidth="160"/>
+                            <TableColumn fx:id="rcColActions" text="Report Card"  maxWidth="160" minWidth="140"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+</BorderPane>

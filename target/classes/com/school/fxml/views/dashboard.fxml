@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<!--
+  dashboard.fxml
+  Path: src/main/resources/com/school/fxml/views/dashboard.fxml
+  All 3 roles load this view. Content is built programmatically by DashboardController.
+-->
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.school.controller.DashboardController"
+        stylesheets="@../../css/styles.css">
+
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT">
+                <padding><Insets top="20" right="24" bottom="12" left="24"/></padding>
+                <Label fx:id="pageTitle" text="Dashboard" styleClass="page-title"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+            <VBox fx:id="dashContent" spacing="24">
+                <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

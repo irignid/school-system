@@ -1,0 +1,218 @@
+/* ── Global ─────────────────────────────────────────────── */
+.root { -fx-font-family: "Segoe UI", Arial, sans-serif; }
+
+/* ── Login page ─────────────────────────────────────────── */
+.login-bg { -fx-background-color: #f1f5f9; }
+
+.login-card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 24, 0, 0, 6);
+}
+
+.field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374151;
+}
+
+.input-field {
+    -fx-pref-height: 42px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1.5;
+    -fx-background-color: white;
+    -fx-padding: 0 12;
+}
+
+.input-field:focused {
+    -fx-border-color: #3b82f6;
+    -fx-border-width: 2;
+}
+
+.error-label {
+    -fx-text-fill: #dc2626;
+    -fx-font-size: 13px;
+    -fx-background-color: #fef2f2;
+    -fx-background-radius: 8;
+    -fx-border-color: #fecaca;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 10 14;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn-primary {
+    -fx-background-color: #1e40af;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 44px;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.btn-primary:hover  { -fx-background-color: #1d4ed8; }
+.btn-primary:pressed{ -fx-background-color: #1e3a8a; }
+.btn-primary:disabled { -fx-opacity: 0.6; }
+
+.btn-secondary {
+    -fx-background-color: #f8fafc;
+    -fx-text-fill: #374151;
+    -fx-font-size: 13px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-pref-height: 36px;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover { -fx-background-color: #f1f9f5; }
+
+.btn-danger {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-pref-height: 36px;
+    -fx-cursor: hand;
+}
+.btn-danger:hover { -fx-background-color: #b91c1c; }
+
+/* ── Top bar ─────────────────────────────────────────────── */
+.topbar {
+    -fx-background-color:  #1F51FF;
+    -fx-pref-height: 56px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 8, 0, 0, 2);
+}
+
+.role-badge {
+    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 12;
+}
+
+.btn-logout {
+    -fx-background-color: rgba(255,255,255,0.12);
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-border-color: rgba(255,255,255,0.3);
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-pref-height: 32px;
+}
+.btn-logout:hover { -fx-background-color: rgba(255,255,255,0.22); }
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.sidebar {
+    -fx-background-color: #1e293b;
+    -fx-pref-width: 220px;
+}
+
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 12;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-pref-height: 40px;
+}
+.nav-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-text-fill: #e2e8f0;
+}
+.nav-btn-active {
+    -fx-background-color: rgba(30, 64, 175, 0.2);
+    -fx-text-fill: #93c5fd;
+    -fx-font-weight: bold;
+}
+
+/* ── Content cards ───────────────────────────────────────── */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 12, 0, 0, 3);
+    -fx-padding: 20;
+}
+
+.page-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374151;
+}
+
+/* ── Tables ──────────────────────────────────────────────── */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+.table-view .column-header,
+.table-view .table-cell {
+    -fx-border-color: #e8e9f5;
+}
+.table-view .column-header-background {
+    -fx-background-color: #f8fafc;
+}
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+    -fx-font-size: 13px;
+}
+.table-row-cell:selected {
+    -fx-background-color: #dbeafe;
+}
+.table-row-cell:selected .text {
+    -fx-fill: #1e40af;
+}
+
+/* ── Form fields (reusable in views) ─────────────────────── */
+.form-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374151;
+}
+
+.combo-box, .date-picker {
+    -fx-pref-height: 38px;
+    -fx-font-size: 13px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1.5;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:focused,
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:selected {
+    -fx-background-color: #4C50AF;
+    -fx-text-fill: white;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:hover {
+    -fx-background-color: #666ABB;
+    -fx-text-fill: white;
+}
+
+.text-area {
+    -fx-font-size: 13px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1.5;
+}

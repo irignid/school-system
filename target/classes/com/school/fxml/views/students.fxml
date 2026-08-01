@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<!--
+  students.fxml
+  Loaded by MainController.loadView("students")
+  Path: src/main/resources/com/school/fxml/views/students.fxml
+-->
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.school.controller.StudentsController"
+        stylesheets="@../../css/styles.css">
+
+    <!-- ═══ TOP BAR ════════════════════════════════════════════ -->
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <padding><Insets top="20" right="24" bottom="16" left="24"/></padding>
+                <Label text="Students" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="searchField"
+                           promptText="Search name or NIC…"
+                           prefWidth="260"
+                           onKeyReleased="#handleSearch"/>
+                <CheckBox fx:id="showInactiveCheck"
+                          text="Show inactive"
+                          onAction="#handleSearch"/>
+                <Button text="＋  Add Student"
+                        styleClass="btn-primary"
+                        onAction="#handleAddStudent"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <!-- ═══ CENTER: student list (top) + guardian panel (bottom) ═══ -->
+    <center>
+        <SplitPane orientation="VERTICAL" dividerPositions="0.62">
+
+            <!-- ── Student TableView ─────────────────────────── -->
+            <TableView fx:id="studentTable" styleClass="table-view">
+                <placeholder>
+                    <Label text="Select a class, date, and period above then click Load."/>
+                </placeholder>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="colId"         text="ID"          maxWidth="60"  minWidth="50"/>
+                    <TableColumn fx:id="colName"        text="Name (EN)"   minWidth="160"/>
+                    <TableColumn fx:id="colNameSi"      text="නම (සිංහල)" minWidth="130"/>
+                    <TableColumn fx:id="colDob"         text="D.O.B"       minWidth="110"/>
+                    <TableColumn fx:id="colGender"      text="Gender"      maxWidth="80"  minWidth="70"/>
+                    <TableColumn fx:id="colNic"         text="NIC"         minWidth="120"/>
+                    <TableColumn fx:id="colEnrolled"    text="Enrolled"    minWidth="110"/>
+                    <TableColumn fx:id="colStatus"      text="Status"      maxWidth="90"  minWidth="70"/>
+                    <TableColumn fx:id="colActions"     text="Actions"     minWidth="170" maxWidth="200"/>
+                </columns>
+            </TableView>
+
+            <!-- ── Guardian panel ────────────────────────────── -->
+            <VBox styleClass="card" spacing="10">
+                <padding><Insets top="14" right="20" bottom="14" left="20"/></padding>
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label fx:id="guardianTitle"
+                           text="Guardians — select a student above"
+                           styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="btnAddGuardian"
+                            text="＋  Add Guardian"
+                            styleClass="btn-secondary"
+                            onAction="#handleAddGuardian"
+                            disable="true"/>
+                </HBox>
+
+                <TableView fx:id="guardianTable" VBox.vgrow="ALWAYS">
+                    <placeholder>
+                        <Label text="No guardians recorded."/>
+                    </placeholder>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                    <columns>
+                        <TableColumn fx:id="gColName"         text="Full Name"     minWidth="150"/>
+                        <TableColumn fx:id="gColRelationship" text="Relationship"  maxWidth="130" minWidth="100"/>
+                        <TableColumn fx:id="gColPhone"        text="Phone"         minWidth="120"/>
+                        <TableColumn fx:id="gColEmail"        text="Email"         minWidth="160"/>
+                        <TableColumn fx:id="gColActions"      text="Actions"       maxWidth="160" minWidth="140"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+        </SplitPane>
+    </center>
+
+</BorderPane>

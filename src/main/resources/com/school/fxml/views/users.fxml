@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<!--
+  users.fxml
+  Path: src/main/resources/com/school/fxml/views/users.fxml
+  Principal only.
+-->
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.school.controller.UserManagementController"
+        stylesheets="@../../css/styles.css">
+
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT">
+                <padding><Insets top="20" right="24" bottom="12" left="24"/></padding>
+                <Label text="User Management" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="＋  Add User"
+                        styleClass="btn-primary"
+                        onAction="#handleAddUser"/>
+            </HBox>
+            <Separator/>
+
+            <!-- Filter bar -->
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <padding><Insets top="12" right="24" bottom="12" left="24"/></padding>
+                <TextField fx:id="searchField"
+                           promptText="Search username or name…"
+                           prefWidth="240"
+                           onKeyReleased="#handleSearch"/>
+                <Label text="Role:" styleClass="form-label"/>
+                <ComboBox fx:id="roleFilter" prefWidth="130"/>
+                <Label text="Status:" styleClass="form-label"/>
+                <ComboBox fx:id="statusFilter" prefWidth="120"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="userTable" styleClass="table-view">
+            <placeholder><Label text="No users found."/></placeholder>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="colUsername"  text="Username"   minWidth="130"/>
+                <TableColumn fx:id="colFullName"  text="Full Name"  minWidth="160"/>
+                <TableColumn fx:id="colRole"      text="Role"       maxWidth="110" minWidth="90"/>
+                <TableColumn fx:id="colPhone"     text="Phone"      minWidth="120"/>
+                <TableColumn fx:id="colStatus"    text="Status"     maxWidth="100" minWidth="80"/>
+                <TableColumn fx:id="colLastLogin" text="Last Login" minWidth="150"/>
+                <TableColumn fx:id="colActions"   text="Actions"    minWidth="240" maxWidth="280"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

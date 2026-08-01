@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.school.controller.MainController"
+            stylesheets="@../css/styles.css"
+            prefWidth="1280" prefHeight="800">
+
+    <!-- ── TOP HEADER ─────────────────────────────────────── -->
+    <top>
+        <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="0" right="20" bottom="0" left="20"/></padding>
+
+            <Label text="🏫" style="-fx-font-size: 22px;"/>
+            <Label text="School Management System"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+            <!-- Spacer -->
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label fx:id="roleLabel"   styleClass="role-badge"/>
+            <Label fx:id="userLabel"   style="-fx-text-fill: #cbd5e1; -fx-font-size: 13px;"/>
+            <Separator orientation="VERTICAL" style="-fx-padding: 0 4 0 4;"/>
+            <Button text="Logout" styleClass="btn-logout" onAction="#handleLogout"/>
+        </HBox>
+    </top>
+
+    <!-- ── LEFT SIDEBAR ───────────────────────────────────── -->
+    <left>
+        <VBox fx:id="sidebar" styleClass="sidebar" spacing="4" prefWidth="220">
+            <padding><Insets top="20" right="12" bottom="20" left="12"/></padding>
+
+            <Label text="NAVIGATION"
+                   style="-fx-font-size: 10px; -fx-font-weight: bold;
+                          -fx-text-fill: #64748b; -fx-padding: 0 0 8 8;"/>
+
+            <!-- Nav buttons injected by MainController based on role -->
+            <VBox fx:id="navButtons" spacing="2"/>
+        </VBox>
+    </left>
+
+    <!-- ── MAIN CONTENT AREA ──────────────────────────────── -->
+    <center>
+        <StackPane fx:id="contentArea"
+                   style="-fx-background-color: #f8fafc; -fx-padding: 24;"/>
+    </center>
+
+</BorderPane>
