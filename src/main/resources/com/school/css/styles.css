@@ -48,9 +48,9 @@
 .btn-primary {
     -fx-background-color: #059669; /* Emerald 600 */
     -fx-text-fill: white;
-    -fx-font-size: 14px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
-    -fx-pref-height: 44px;
+    -fx-pref-height: 36px;
     -fx-background-radius: 8;
     -fx-cursor: hand;
 }
@@ -157,65 +157,9 @@
     -fx-text-fill: #374151;
 }
 
-/* ── Tables ──────────────────────────────────────────────── */
-.table-view {
-    -fx-background-color: white;
-    -fx-border-color: #e5e7eb;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-}
-.table-view .column-header,
-.table-view .table-cell {
-    -fx-border-color: #f3f4f6;
-}
-.table-view .column-header-background {
-    -fx-background-color: #f9fafb;
-}
-.table-view .column-header .label {
-    -fx-font-weight: bold;
-    -fx-text-fill: #6b7280;
-    -fx-font-size: 13px;
-}
-.table-row-cell:selected {
-    -fx-background-color: #d1fae5;
-}
-.table-row-cell:selected .text {
-    -fx-fill: #065f46;
-}
-
 /* ── Form fields (reusable in views) ─────────────────────── */
 .form-label {
     -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-text-fill: #374151;
-}
-
-.combo-box, .date-picker {
-    -fx-pref-height: 38px;
-    -fx-font-size: 13px;
-    -fx-background-radius: 8;
-    -fx-border-radius: 8;
-    -fx-border-color: #d1d5db;
-    -fx-border-width: 1.5;
-    -fx-background-color: #f9fafb;
-}
-
-.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:focused,
-.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:selected {
-    -fx-background-color: #10b981;
-    -fx-text-fill: white;
-}
-
-.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:hover {
-    -fx-background-color: #34d399;
-    -fx-text-fill: white;
-}
-
-.text-area {
-    -fx-font-size: 13px;
-    -fx-background-radius: 8;
-    -fx-border-radius: 8;
-    -fx-border-color: #d1d5db;
-    -fx-border-width: 1.5;
-    -fx-background-color: #f9fafb;
 }

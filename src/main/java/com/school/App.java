@@ -11,6 +11,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        Application.setUserAgentStylesheet(new atlantafx.base.theme.PrimerLight().getUserAgentStylesheet());
+
         if (!DBConnection.testConnection()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Database Error");

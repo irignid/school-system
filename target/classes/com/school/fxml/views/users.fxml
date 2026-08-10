@@ -49,13 +49,13 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
             </columnResizePolicy>
             <columns>
-                <TableColumn fx:id="colUsername"  text="Username"   minWidth="130"/>
-                <TableColumn fx:id="colFullName"  text="Full Name"  minWidth="160"/>
-                <TableColumn fx:id="colRole"      text="Role"       maxWidth="110" minWidth="90"/>
-                <TableColumn fx:id="colPhone"     text="Phone"      minWidth="120"/>
-                <TableColumn fx:id="colStatus"    text="Status"     maxWidth="100" minWidth="80"/>
-                <TableColumn fx:id="colLastLogin" text="Last Login" minWidth="150"/>
-                <TableColumn fx:id="colActions"   text="Actions"    minWidth="240" maxWidth="280"/>
+                <TableColumn fx:id="colUsername"  text="Username"   minWidth="80" prefWidth="100"/>
+                <TableColumn fx:id="colFullName"   text="Full Name"  minWidth="120" prefWidth="150"/>
+                <TableColumn fx:id="colRole"      text="Role"       minWidth="70"  prefWidth="80" maxWidth="90"/>
+                <TableColumn fx:id="colPhone"     text="Phone"      minWidth="60"  prefWidth="80"/>
+                <TableColumn fx:id="colStatus"    text="Status"     minWidth="70"  prefWidth="80" maxWidth="90"/>
+                <TableColumn fx:id="colLastLogin" text="Last Login" minWidth="138" prefWidth="148"/>
+                <TableColumn fx:id="colActions"   text="Actions"    minWidth="240" prefWidth="260"/>
             </columns>
         </TableView>
     </center>

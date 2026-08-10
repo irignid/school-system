@@ -50,12 +50,12 @@
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                             </columnResizePolicy>
                             <columns>
-                                <TableColumn fx:id="fsColGrade"   text="Grade"       maxWidth="90"  minWidth="70"/>
-                                <TableColumn fx:id="fsColTerm"    text="Term"        maxWidth="100" minWidth="80"/>
-                                <TableColumn fx:id="fsColYear"    text="Year"        maxWidth="120" minWidth="100"/>
-                                <TableColumn fx:id="fsColDesc"    text="Description" minWidth="180"/>
-                                <TableColumn fx:id="fsColTotal"   text="Total (LKR)" maxWidth="130" minWidth="110"/>
-                                <TableColumn fx:id="fsColActions" text="Actions"     maxWidth="200" minWidth="180"/>
+                                <TableColumn fx:id="fsColGrade"   text="Grade"       minWidth="60"  prefWidth="70"  maxWidth="150"/>
+                                <TableColumn fx:id="fsColTerm"    text="Term"        minWidth="70"  prefWidth="80"  maxWidth="160"/>
+                                <TableColumn fx:id="fsColYear"    text="Year"        minWidth="80"  prefWidth="90"  maxWidth="180"/>
+                                <TableColumn fx:id="fsColDesc"    text="Description" minWidth="320" prefWidth="360"/>
+                                <TableColumn fx:id="fsColTotal"   text="Total (LKR)" minWidth="100" prefWidth="110" maxWidth="200"/>
+                                <TableColumn fx:id="fsColActions" text="Actions"     minWidth="220" prefWidth="240" maxWidth="260"/>
                             </columns>
                         </TableView>
                     </VBox>
@@ -82,7 +82,7 @@
                             <columns>
                                 <TableColumn fx:id="fiColName"    text="Item Name"   minWidth="200"/>
                                 <TableColumn fx:id="fiColAmount"  text="Amount (LKR)" maxWidth="150" minWidth="120"/>
-                                <TableColumn fx:id="fiColActions" text="Actions"     maxWidth="180" minWidth="160"/>
+                                <TableColumn fx:id="fiColActions" text="Actions"     maxWidth="240" minWidth="180"/>
                             </columns>
                         </TableView>
                     </VBox>

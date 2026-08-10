@@ -87,7 +87,7 @@
                             <TableColumn fx:id="termColNumber" text="Term"       maxWidth="80"  minWidth="70"/>
                             <TableColumn fx:id="termColStart"  text="Start Date" minWidth="130"/>
                             <TableColumn fx:id="termColEnd"    text="End Date"   minWidth="130"/>
-                            <TableColumn fx:id="termColActions" text="Actions"   maxWidth="200" minWidth="170"/>
+                            <TableColumn fx:id="termColActions" text="Actions"   maxWidth="180" minWidth="150"/>
                         </columns>
                     </TableView>
                 </VBox>
@@ -118,7 +118,7 @@
                             <TableColumn fx:id="subjectColName"    text="Subject (EN)"  minWidth="160"/>
                             <TableColumn fx:id="subjectColNameSi"  text="විෂය (සිංහල)" minWidth="150"/>
                             <TableColumn fx:id="subjectColGrade"   text="Grade"         maxWidth="100" minWidth="80"/>
-                            <TableColumn fx:id="subjectColActions" text="Actions"       maxWidth="180" minWidth="160"/>
+                            <TableColumn fx:id="subjectColActions" text="Actions"       maxWidth="180" minWidth="150"/>
                         </columns>
                     </TableView>
                 </VBox>
@@ -203,10 +203,10 @@
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                             </columnResizePolicy>
                             <columns>
-                                <TableColumn fx:id="csColSubject"   text="Subject"    minWidth="150"/>
-                                <TableColumn fx:id="csColSubjectSi" text="සිංහල"     minWidth="130"/>
-                                <TableColumn fx:id="csColTeacher"   text="Teacher"    minWidth="160"/>
-                                <TableColumn fx:id="csColActions"   text="Actions"    maxWidth="180" minWidth="160"/>
+                                <TableColumn fx:id="csColSubject"   text="Subject"    minWidth="80"  prefWidth="120"  maxWidth="180"/>
+                                <TableColumn fx:id="csColSubjectSi" text="සිංහල"      minWidth="80"  prefWidth="120"  maxWidth="180"/>
+                                <TableColumn fx:id="csColTeacher"   text="Teacher"    minWidth="120" prefWidth="150"/>
+                                <TableColumn fx:id="csColActions"   text="Actions"    minWidth="180" prefWidth="220"  maxWidth="280"/>
                             </columns>
                         </TableView>
                     </VBox>

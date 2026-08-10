@@ -49,15 +49,15 @@
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                 </columnResizePolicy>
                 <columns>
-                    <TableColumn fx:id="colId"         text="ID"          maxWidth="60"  minWidth="50"/>
-                    <TableColumn fx:id="colName"        text="Name (EN)"   minWidth="160"/>
-                    <TableColumn fx:id="colNameSi"      text="නම (සිංහල)" minWidth="130"/>
-                    <TableColumn fx:id="colDob"         text="D.O.B"       minWidth="110"/>
-                    <TableColumn fx:id="colGender"      text="Gender"      maxWidth="80"  minWidth="70"/>
-                    <TableColumn fx:id="colNic"         text="NIC"         minWidth="120"/>
-                    <TableColumn fx:id="colEnrolled"    text="Enrolled"    minWidth="110"/>
-                    <TableColumn fx:id="colStatus"      text="Status"      maxWidth="90"  minWidth="70"/>
-                    <TableColumn fx:id="colActions"     text="Actions"     minWidth="170" maxWidth="200"/>
+                    <TableColumn fx:id="colId"       text="ID"          minWidth="30"  prefWidth="45"  maxWidth="50"/>
+                    <TableColumn fx:id="colName"     text="Name (EN)"   minWidth="60"  prefWidth="125"/>
+                    <TableColumn fx:id="colNameSi"   text="නම (සිංහල)" minWidth="60"  prefWidth="125"/>
+                    <TableColumn fx:id="colDob"      text="D.O.B"       minWidth="85"  prefWidth="95"  maxWidth="105"/>
+                    <TableColumn fx:id="colGender"   text="Gender"      minWidth="60"  prefWidth="65"  maxWidth="75"/>
+                    <TableColumn fx:id="colNic"      text="NIC"         minWidth="95"  prefWidth="105" maxWidth="115"/>
+                    <TableColumn fx:id="colEnrolled" text="Enrolled"    minWidth="85"  prefWidth="95"  maxWidth="105"/>
+                    <TableColumn fx:id="colStatus"   text="Status"      minWidth="65"  prefWidth="75"  maxWidth="85"/>
+                    <TableColumn fx:id="colActions"  text="Actions"     minWidth="150" prefWidth="180" maxWidth="220"/>
                 </columns>
             </TableView>
 

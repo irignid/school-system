@@ -106,7 +106,7 @@ public class DashboardController {
 
         TableView<GradeThreshold> table = new TableView<>(thresholds);
         table.setEditable(true);
-        table.setPrefHeight(220);
+        table.setPrefHeight(300);
         table.setMaxWidth(500);
         table.getStyleClass().add("table-view");
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);

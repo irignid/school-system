@@ -65,10 +65,10 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
             </columnResizePolicy>
             <columns>
-                <TableColumn fx:id="colNum"      text="#"              maxWidth="50"  minWidth="40"/>
-                <TableColumn fx:id="colName"     text="Student Name"   minWidth="180"/>
-                <TableColumn fx:id="colNameSi"   text="නම (සිංහල)"   minWidth="150"/>
-                <TableColumn fx:id="colStatus"   text="Status"         minWidth="280" maxWidth="320"/>
+                <TableColumn fx:id="colNum"    text="#"            minWidth="40" prefWidth="45"  maxWidth="60"/>
+                <TableColumn fx:id="colName"   text="Student Name" minWidth="230" prefWidth="280"/>
+                <TableColumn fx:id="colNameSi" text="නම (සිංහල)"  minWidth="230" prefWidth="280"/>
+                <TableColumn fx:id="colStatus" text="Status"      minWidth="350" prefWidth="380" maxWidth="420"/>
             </columns>
         </TableView>
     </center>
