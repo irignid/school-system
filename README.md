@@ -1,6 +1,6 @@
 # School Management System
 
-A Java desktop application for managing single-school administrative operations — built as a university project for [Your Course Name].
+A Java desktop application for managing single-school administrative operations — built as a university project for semester 2 subjects.
 
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![JavaFX](https://img.shields.io/badge/JavaFX-21.0.2-blue)
@@ -39,12 +39,12 @@ School Management System replaces manual, paper-based school administration with
 
 The application follows the **MVC pattern** with a dedicated DAO layer:
 
-com.school
-├── model/ — Domain entities (Student, Attendance, Invoice, etc.)
-├── dao/ — Database access objects, one per table group
-├── controller/ — JavaFX controllers, one per view
-├── service/ — ReportCardService (PDF generation)
-└── util/ — DBConnection, SessionManager
+com.school<br>
+├── model/ — Domain entities (Student, Attendance, Invoice, etc.)<br>
+├── dao/ — Database access objects, one per table group<br>
+├── controller/ — JavaFX controllers, one per view<br>
+├── service/ — `ReportCardService` (PDF generation)<br>
+└── util/ — `DBConnection`, `SessionManager`
 
 
 FXML views live under `src/main/resources/com/school/fxml/`.
@@ -64,8 +64,8 @@ FXML views live under `src/main/resources/com/school/fxml/`.
 
 1. **Clone the repo**
 ```bash
-   git clone https://github.com/<your-username>/school-system.git
-   cd school-system
+   git clone https://github.com/DingiriNaide/School-System.git
+   cd School-System
 ```
 
 2. **Create the database**
@@ -96,15 +96,15 @@ FXML views live under `src/main/resources/com/school/fxml/`.
 
 ## Project Structure
 
-school-system/
-├── src/main/java/com/school/
-├── src/main/resources/com/school/
-│ ├── fxml/
-│ ├── css/
-│ └── images/
-├── school_management_schema.sql
-├── pom.xml
-└── README.md
+school-system/<br>
+├── src/main/java/com/school/<br>
+├── src/main/resources/com/school/<br>
+│   ├── fxml/<br>
+│   ├── css/<br>
+│   └── images/<br>
+├── school_management_schema.sql<br>
+├── pom.xml<br>
+└── README.md<br>
 
 
 ## Screenshots
